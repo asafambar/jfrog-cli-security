@@ -6,7 +6,7 @@ on:
 env:
   # Defined at top level as we use local CLI for testings
   JFROG_CLI_LOG_LEVEL: DEBUG
-  JF_URL: "https://soleng.jfrog.io/"
+  JF_URL: "https://soleng.jfrog.io"
   JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
 jobs:
   Test-GitHub-Job-Summary:
@@ -24,7 +24,7 @@ jobs:
       - name: Setup JFrog CLI
         uses: jfrog/setup-jfrog-cli@v4
         with:
-          JF_URL: ${{ var.JF_URL }}
+          JF_URL: "https://soleng.jfrog.io"
           JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
 
       # Get CLI source code
