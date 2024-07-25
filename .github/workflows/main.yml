@@ -12,7 +12,7 @@ jobs:
   Test-GitHub-Job-Summary:
     strategy:
       matrix:
-        os: [ ubuntu,macos,windows ]
+        os: [ ubuntu,macos ]
     runs-on: ${{ matrix.os }}-latest
     steps:
       - name: Setup Go environment
@@ -42,7 +42,7 @@ jobs:
     # example ./jf rt ping instead of jf rt ping
     # this will use the executable you just built.
         
-      - name: Your other workflow here
+      - name: run curation
         run: |
           ./jf goc --repo-resolve asafa-go-virtual --server-id-resolve ${serverId}
           ./jf ca  
