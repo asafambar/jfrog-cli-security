@@ -1,0 +1,48 @@
+name: Print Job Summary
+on:
+  push:
+    branches:
+      - '**'
+env:
+  # Defined at top level as we use local CLI for testings
+  JFROG_CLI_LOG_LEVEL: DEBUG
+  JF_URL: "https://soleng.jfrog.io/"
+  JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
+jobs:
+  Test-GitHub-Job-Summary:
+    strategy:
+      matrix:
+        os: [ ubuntu,macos,windows ]
+    runs-on: ${{ matrix.os }}-latest
+    steps:
+      - name: Setup Go environment
+        uses: actions/setup-go@v5.0.2
+        with:
+        # The Go version to download (if necessary) and use. Supports semver spec and ranges. Be sure to enclose this option in single quotation marks.
+          go-version: 1.22.1
+# Use this action to see results in GitHub Actions UI
+      - name: Setup JFrog CLI
+        uses: jfrog/setup-jfrog-cli@v4
+        with:
+          JF_URL: ${{ var.JF_URL }}
+          JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
+
+      # Get CLI source code
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          repository: 'asafambar/jfrog-cli'
+          ref: 'curation_summary'
+          
+      # build CLI EXE
+      - name: build cli
+        run: ./build/build.sh
+        
+    # TODO -> in every command use the ./jf exectuable and not jf
+    # example ./jf rt ping instead of jf rt ping
+    # this will use the executable you just built.
+        
+      - name: Your other workflow here
+        run: |
+          ./jf goc --repo-resolve asafa-go-virtual --server-id-resolve ${serverId}
+          ./jf ca  
