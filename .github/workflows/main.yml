@@ -8,6 +8,7 @@ env:
   JFROG_CLI_LOG_LEVEL: DEBUG
   JF_URL: "https://soleng.jfrog.io"
   JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
+  JFROG_CLI_CURATION: true
 jobs:
   Test-GitHub-Job-Summary:
     strategy:
