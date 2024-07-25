@@ -44,5 +44,5 @@ jobs:
         
       - name: run curation
         run: |
-          ./jf goc --repo-resolve asafa-go-virtual --server-id-resolve ${serverId}
+          ./jf goc --repo-resolve asafa-go-virtual
           ./jf ca  
