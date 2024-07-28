@@ -46,6 +46,7 @@ jobs:
       - name: run curation
         run: |
           ./jf goc --repo-resolve asafa-go-virtual
+          ./jf scan jf
           ./jf ca
         env:
           JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
