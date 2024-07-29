@@ -50,5 +50,5 @@ jobs:
           cd testdata/pip/requirementsproject
           jf pipc --repo-resolve asafa-pip-remote
           cd ../../..
-          pwd
-          ./jf ca --requirements-file=requirements.txt --working-dirs .,/testdata/pip/requirementsproject/requirements.txt
+          ls
+          ./jf ca --requirements-file=requirements.txt --working-dirs .,./testdata/pip/requirementsproject/requirements.txt
