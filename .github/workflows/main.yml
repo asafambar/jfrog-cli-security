@@ -47,7 +47,7 @@ jobs:
         run: |
           ./jf goc --repo-resolve asafa-go-virtual
           ./jf scan jf
-          cd /testdata/pip/requirementsproject/
+          cd testdata/pip/requirementsproject
           jf pipc --repo-resolve asafa-pip-remote
           cd $GITHUB_WORKSPACE/asafambar/jfrog-cli
           ./jf ca --working-dirs .,/testdata/pip/requirementsproject/requirements.txt
