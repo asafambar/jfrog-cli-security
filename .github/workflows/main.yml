@@ -45,10 +45,9 @@ jobs:
         
       - name: run curation
         run: |
-          ./jf goc --repo-resolve asafa-go-virtual
-          ./jf scan jf
+          jf goc --repo-resolve asafa-go-virtual
           cd testdata/pip/requirementsproject
           jf pipc --repo-resolve asafa-pip-remote
           cd ../../..
-          ls
+          ./jf scan jf
           ./jf ca --requirements-file=requirements.txt --working-dirs .,./testdata/pip/requirementsproject
