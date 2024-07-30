@@ -3,12 +3,6 @@ on:
   push:
     branches:
       - '**'
-env:
-  # Defined at top level as we use local CLI for testings
-  JFROG_CLI_LOG_LEVEL: DEBUG
-  JF_URL: "https://soleng.jfrog.io"
-  JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
-  JFROG_CLI_CURATION: true
 jobs:
   Test-GitHub-Job-Summary:
     strategy:
@@ -27,7 +21,12 @@ jobs:
         with:
           JF_URL: "https://soleng.jfrog.io"
           JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
-
+        env:
+          # Defined at top level as we use local CLI for testings
+          JFROG_CLI_LOG_LEVEL: DEBUG
+          JF_URL: "https://soleng.jfrog.io"
+          JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
+          JFROG_CLI_CURATION: true
       # Get CLI source code
       - name: Checkout
         uses: actions/checkout@v4
@@ -51,3 +50,9 @@ jobs:
           cd ../../..
           ./jf scan jf
           ./jf ca --requirements-file=requirements.txt --working-dirs .,./testdata/pip/requirementsproject
+        env:
+          # Defined at top level as we use local CLI for testings
+          JFROG_CLI_LOG_LEVEL: DEBUG
+          JF_URL: "https://soleng.jfrog.io"
+          JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
+          JFROG_CLI_CURATION: true
