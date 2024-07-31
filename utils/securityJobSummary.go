@@ -228,7 +228,7 @@ func getBlockedCurationSummaryString(summary formats.ScanSummaryResult) (content
 		for index, blockStruct := range blocked {
 			subScanPrefix := fmt.Sprintf("<br>%s", getListItemPrefix(index, len(blocked)))
 			subScanPrefix += blockStruct.BlockedName
-			content += fmt.Sprintf("%s (%d)", subScanPrefix, blockStruct.BlockedValue.GetTotal())
+			content += fmt.Sprintf("%s (%d)", subScanPrefix, len(blockStruct.BlockedValue))
 		}
 	}
 	return
