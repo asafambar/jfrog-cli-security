@@ -47,7 +47,7 @@ jobs:
           jf pipc --repo-resolve asafa-pip-remote
           cd ../../..
           ./jf scan jf
-          ./jf ca --requirements-file=requirements.txt --working-dirs .,./testdata/pip/requirementsproject
+          ./jf ca
         env:
           # Defined at top level as we use local CLI for testings
           JFROG_CLI_LOG_LEVEL: DEBUG
