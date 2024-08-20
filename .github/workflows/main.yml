@@ -30,7 +30,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: 'asafambar/jfrog-cli'
-          ref: 'curation_summary'
+          ref: 'implicit_curation_support'
           
       # build CLI EXE
       - name: build cli
@@ -43,11 +43,7 @@ jobs:
       - name: run curation
         run: |
           jf goc --repo-resolve asafa-go-virtual
-          cd testdata/pip/requirementsproject
-          jf pipc --repo-resolve asafa-pip-remote
-          cd ../../..
-          ./jf scan jf
-          ./jf ca
+          ./jf go install
         env:
           # Defined at top level as we use local CLI for testings
           JFROG_CLI_LOG_LEVEL: DEBUG
