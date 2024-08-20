@@ -1,4 +1,4 @@
-name: Print Job Summary
+Iname: Print Job Summary
 on:
   push:
     branches:
@@ -46,7 +46,7 @@ jobs:
           ./jf go install --no-fallback=true
         env:
           # Defined at top level as we use local CLI for testings
-          JFROG_CLI_LOG_LEVEL: DEBUG
+          JFROG_CLI_LOG_LEVEL: INFO
           JF_URL: "https://soleng.jfrog.io"
           JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
           JFROG_CLI_CURATION: true
