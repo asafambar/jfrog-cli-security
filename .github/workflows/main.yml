@@ -42,6 +42,7 @@ jobs:
         
       - name: run curation
         run: |
+          go ​clean -modcache
           jf goc --repo-resolve asafa-go-virtual
           ./jf go install --no-fallback=true
         env:
@@ -50,4 +51,3 @@ jobs:
           JF_URL: "https://soleng.jfrog.io"
           JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
           JFROG_CLI_CURATION: true
-          GOMODCACHE: "/Users/runner/work/jfrog-cli-security/jfrog-cli-security"
