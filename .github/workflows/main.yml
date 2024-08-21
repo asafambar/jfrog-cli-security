@@ -42,7 +42,7 @@ jobs:
         
       - name: run curation
         run: |
-          go ​clean -modcache
+          go clean -modcache
           jf goc --repo-resolve asafa-go-virtual
           ./jf go install --no-fallback=true
         env:
