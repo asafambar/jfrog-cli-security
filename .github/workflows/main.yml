@@ -34,7 +34,7 @@ jobs:
         run: |
           go clean -modcache
           jf goc --repo-resolve asafa-go-virtual
-          ./jf go install --no-fallback=true
+          jf go install --no-fallback=true
         env:
           # Defined at top level as we use local CLI for testings
           JFROG_CLI_LOG_LEVEL: INFO
