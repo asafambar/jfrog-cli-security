@@ -25,16 +25,6 @@ jobs:
           JF_URL: "https://soleng.jfrog.io"
           JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
           JFROG_CLI_CURATION: true
-      # Get CLI source code
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          repository: 'asafambar/jfrog-cli'
-          ref: 'implicit_curation_support'
-          
-      # build CLI EXE
-      - name: build cli
-        run: ./build/build.sh
         
     # TODO -> in every command use the ./jf exectuable and not jf
     # example ./jf rt ping instead of jf rt ping
