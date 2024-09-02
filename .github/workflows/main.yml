@@ -29,10 +29,12 @@ jobs:
     # TODO -> in every command use the ./jf exectuable and not jf
     # example ./jf rt ping instead of jf rt ping
     # this will use the executable you just built.
+    
+      - name: Checkout
+        uses: actions/checkout@v4
         
       - name: run curation
         run: |
-          ls
           go clean -modcache
           jf goc --repo-resolve asafa-go-virtual
           jf go install --no-fallback=true
