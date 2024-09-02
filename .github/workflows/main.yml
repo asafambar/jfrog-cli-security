@@ -35,9 +35,7 @@ jobs:
         
       - name: run curation
         run: |
-          go clean -modcache
-          jf goc --repo-resolve asafa-go-virtual
-          jf go install --no-fallback=true
+          ls
         env:
           # Defined at top level as we use local CLI for testings
           JFROG_CLI_LOG_LEVEL: INFO
