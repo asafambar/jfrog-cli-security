@@ -31,11 +31,11 @@ jobs:
     # this will use the executable you just built.
     
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: asafambar/npm-example@0.0.1
         
-      - name: run curation
+      - name: run npm install
         run: |
-          ls
+          jf npm install
         env:
           # Defined at top level as we use local CLI for testings
           JFROG_CLI_LOG_LEVEL: INFO
