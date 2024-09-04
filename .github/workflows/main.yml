@@ -19,7 +19,6 @@ jobs:
       - name: Setup JFrog CLI
         uses: jfrog/setup-jfrog-cli@v4
         env:
-          # Defined at top level as we use local CLI for testings
           JFROG_CLI_LOG_LEVEL: INFO
           JF_URL: "https://soleng.jfrog.io"
           JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
