@@ -31,7 +31,10 @@ jobs:
     # this will use the executable you just built.
     
       - name: Checkout
-        uses: asafambar/npm-example@0.0.1
+      - uses: actions/checkout@v4
+        with:
+          repository: 'asafambar/npm-example'
+          ref: 'master'
         
       - name: run npm install
         run: |
