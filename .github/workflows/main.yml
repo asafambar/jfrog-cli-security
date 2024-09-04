@@ -38,7 +38,8 @@ jobs:
         
       - name: run npm install
         run: |
-          jf npm install
+         jf npm-config --repo-resolve=asafa-npm-remote
+         jf npm install
         env:
           # Defined at top level as we use local CLI for testings
           JFROG_CLI_LOG_LEVEL: INFO
